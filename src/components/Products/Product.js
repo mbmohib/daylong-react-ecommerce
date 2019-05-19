@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import productImg from '../../images/product.png';
-import Title from '../style/Title';
+import productImg from "../../images/product.png";
+import Title from "../style/Title";
 
 const ProductWrapper = styled.div`
     padding: 10px;
@@ -39,10 +39,14 @@ const ProductButton = styled.button`
 const Product = props => (
     <ProductWrapper>
         <ProductImg src={productImg} alt="" />
-        <Title normalFont small oneLine>{props.product.title}</Title>
+        <Title normalFont small oneLine>
+            {props.product.title}
+        </Title>
         <ProductPrice>${props.product.price}</ProductPrice>
-        <ProductButton onClick={() => props.handleAddingProduct(props.product)}>Add to Cart</ProductButton>
+        <ProductButton onClick={() => props.handleAddingProduct(props.product)}>
+            Add to Cart
+        </ProductButton>
     </ProductWrapper>
-)
+);
 
 export default Product;

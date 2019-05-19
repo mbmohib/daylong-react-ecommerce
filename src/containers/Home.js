@@ -47,6 +47,7 @@ class Home extends Component {
         // Copy 2nd level cart items
         const updatedCartItems = [...updatedCart.items];
 
+        // Prevent duplicate entry to cart
         if(!updatedCartItems.find(item => item.id === product.id)) {
             updatedCartItems.push(product);
             updatedCart.items = updatedCartItems;
