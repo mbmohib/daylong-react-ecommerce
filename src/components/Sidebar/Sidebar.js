@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SidebarHeader from './SidebarHeader';
-import EmptryCart from './EmptyCart';
-import Cart from './Cart';
+import SidebarHeader from '../Sidebar/SidebarHeader';
+import EmptryCart from '../Cart/EmptyCart';
+import Cart from '../Cart/Cart';
 
 const SidebarWrapper = styled.div`
 

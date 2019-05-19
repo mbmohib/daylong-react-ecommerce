@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 
 import ProductHeader from './ProductHeader';
 import Product from './Product';
-import Title from './style/Title';
+import Title from '../style/Title';
 
 
 const ProductListWrapper = styled.div`

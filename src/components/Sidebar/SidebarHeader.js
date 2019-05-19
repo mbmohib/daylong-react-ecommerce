@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CartIcon from '@material-ui/icons/ShoppingCart';
 
-import truckImg from '../images/cargo-truck.png'
+import truckImg from '../../images/cargo-truck.png'
 
 
 const SidebarHeaderWrapper = styled.div`

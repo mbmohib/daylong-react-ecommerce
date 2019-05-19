@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CartIcon from '@material-ui/icons/ShoppingCart';
 
-import Title from './style/Title';
+import Title from '../style/Title';
 
 
 const EmptryCartWrapper = styled.div`

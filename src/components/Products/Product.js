@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import productImg from '../images/product.png';
-import Title from '../components/style/Title';
+import productImg from '../../images/product.png';
+import Title from '../style/Title';
 
 const ProductWrapper = styled.div`
     padding: 10px;

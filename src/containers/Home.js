@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 
-import ProductList from '../components/ProductList';
-import Sidebar from '../components/Sidebar';
+import ProductList from '../components/Products/ProductList';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 class Home extends Component {
 
@@ -30,6 +30,7 @@ class Home extends Component {
                 });
 
                 this.setState({ products }, () => {
+                    // Update SearchProduct state after fetching data
                     this.handleSearch('');
                 })
             })
@@ -46,11 +47,15 @@ class Home extends Component {
         // Copy 2nd level cart items
         const updatedCartItems = [...updatedCart.items];
 
-        updatedCartItems.push(product);
-        updatedCart.items = updatedCartItems;
+        if(!updatedCartItems.find(item => item.id === product.id)) {
+            updatedCartItems.push(product);
+            updatedCart.items = updatedCartItems;
 
-        // Update Total Price
-        updatedCart.totalprice += product.price;
+            // Update Total Price
+            updatedCart.totalprice += product.price;
+        }
+
+
         
         // Update cart
         this.setState({ cart: updatedCart })
