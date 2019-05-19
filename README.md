@@ -15,7 +15,5 @@
 
 * > $ npm install
 
-* > Set up a account in Themoviedb official website and and use API credentials
-
 * > npm start
 
