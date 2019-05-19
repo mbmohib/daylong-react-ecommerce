@@ -59,7 +59,7 @@ const SidebarHeader = props => (
     <SidebarHeaderWrapper>
         <TotalItems>
             <CartIcon />
-            <p>0 items</p>
+            <p>{props.totalItems} items</p>
         </TotalItems>
 
         <Mins>
@@ -68,7 +68,7 @@ const SidebarHeader = props => (
         </Mins>
 
         <TotalPrice>
-            <p>$5.00</p>
+            <p>${props.totalPrice}</p>
             <button>checkout</button>
         </TotalPrice>
     </SidebarHeaderWrapper>

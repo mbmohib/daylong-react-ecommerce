@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 
-import ProductHeader from '../components/ProductHeader';
-import Product from '../components/Product';
-import Title from '../components/style/Title';
+import ProductHeader from './ProductHeader';
+import Product from './Product';
+import Title from './style/Title';
 
 
 const ProductListWrapper = styled.div`
@@ -30,21 +30,16 @@ class ProductList extends Component {
 
                 <ProductListContainer>
                     <Grid container>
-                        <Grid item sm={3}>
-                            <Product />
-                        </Grid>
-
-                        <Grid item sm={3}>
-                            <Product />
-                        </Grid>
-
-                        <Grid item sm={3}>
-                            <Product />
-                        </Grid>
-
-                        <Grid item sm={3}>
-                            <Product />
-                        </Grid>
+                        {
+                            this.props.products && this.props.products.map( product => (
+                                <Grid key={product.id} item sm={3}>
+                                    <Product 
+                                        product={product}
+                                        handleAddingProduct={this.props.handleAddingProduct}
+                                    />
+                                </Grid>
+                            ))
+                        }
                     </Grid>
                 </ProductListContainer>
             </ProductListWrapper>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import Layout from '../layouts/Layout';
-import ProductList from '../containers/ProductList';
+import Home from '../containers/Home';
 import FourOFour from '../components/FourOFour';
 
 
@@ -10,7 +10,7 @@ const AppRouter = () => (
     <BrowserRouter>
         <Layout>
             <Switch>
-                <Route path="/" component={ProductList} exact />
+                <Route path="/" component={Home} exact />
                 <Route component={FourOFour} />
             </Switch>
         </Layout>

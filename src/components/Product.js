@@ -15,15 +15,33 @@ const ProductImg = styled.img`
     margin: 0 auto 20px;
 `;
 
-const ProductPrice = styled.p`
-    
+const ProductPrice = styled.p``;
+
+const ProductButton = styled.button`
+    all: unset;
+    border: 1px solid ${props => props.theme.primaryColor};
+    color: ${props => props.theme.primaryColor};
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+        background: ${props => props.theme.primaryColor};
+        color: #fff;
+    }
 `;
 
 const Product = props => (
     <ProductWrapper>
         <ProductImg src={productImg} alt="" />
-        <Title normalFont small>Skinny Pop Black Paper</Title>
-        <ProductPrice>$20</ProductPrice>
+        <Title normalFont small oneLine>{props.product.title}</Title>
+        <ProductPrice>${props.product.price}</ProductPrice>
+        <ProductButton onClick={() => props.handleAddingProduct(props.product)}>Add to Cart</ProductButton>
     </ProductWrapper>
 )
 

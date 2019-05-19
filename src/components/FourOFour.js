@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Container from './style/Container';
 import Title from './style/Title';
 import Wrapper from './style/Wrapper';
 

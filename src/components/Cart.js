@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React from "react";
 
-import CartItem from './CartItem';
+import CartItem from "./CartItem";
 
-class Cart extends Component {
-    render() {
-        return (
-            <CartItem />
-        )
-    }
-}
+const Cart = props => (
+  <React.Fragment>
+    {props.cartItems.length > 0 &&
+      props.cartItems.map((cartItem, index) => (
+        <CartItem
+          key={cartItem.id}
+          item={cartItem}
+          index={index}
+          handleDeletingProduct={props.handleDeletingProduct}
+        />
+      ))}
+  </React.Fragment>
+);
 
 export default Cart;
