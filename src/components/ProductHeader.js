@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Search from '@material-ui/icons/Search';
 
@@ -32,14 +32,36 @@ const SearchIcon = styled(Search)`
     color: #00000080;
 `;
 
-const ProductHeader = () =>  (
-    <HeaderWrapper>
-        <SearchWrapper>
-            <SearchInput type="text" placeholder="Search...."/>
-            <SearchIcon />
-        </SearchWrapper>
-    </HeaderWrapper>   
-)
+class ProductHeader extends Component {
+    state = {
+        searchValue: '',
+    }
+
+    handleChange = e => {
+        const searchValue = e.target.value;
+
+        this.setState(() => ({ searchValue }), () => {
+            this.props.handleSearch(searchValue);
+        })
+    }
+
+
+    render() {
+        return (
+            <HeaderWrapper>
+                <SearchWrapper>
+                    <SearchInput 
+                        onChange={this.handleChange} 
+                        type="text" 
+                        placeholder="Search...."
+                        searchValue={this.state.searchValue}
+                    />
+                    <SearchIcon />
+                </SearchWrapper>
+            </HeaderWrapper>   
+        )
+    }
+} 
 
 
 export default ProductHeader;

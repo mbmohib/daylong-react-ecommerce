@@ -24,7 +24,7 @@ class ProductList extends Component {
     render() {
         return (
             <ProductListWrapper>
-                <ProductHeader />
+                <ProductHeader handleSearch={this.props.handleSearch}/>
 
                 <ProductListTitle>Favorites</ProductListTitle>
 

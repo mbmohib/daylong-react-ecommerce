@@ -9,10 +9,12 @@ class Home extends Component {
 
     state = {
         products: null,
+        searchedProducts: null,
         cart: {
             items: [],
             totalprice: 0
-        }
+        },
+        searchValue: ''
     }
 
     componentDidMount() {
@@ -27,11 +29,17 @@ class Home extends Component {
                     })
                 });
 
-                this.setState({ products })
+                this.setState({ products }, () => {
+                    this.handleSearch('');
+                })
             })
             .catch(err => {});
     }
 
+    /**
+     *  Add product to Cart
+     *  @memberof Home
+     */
     handleAddingProduct = product => {
         // Copy Product Cart
         const updatedCart = {...this.state.cart};
@@ -48,6 +56,10 @@ class Home extends Component {
         this.setState({ cart: updatedCart })
     }
 
+    /**
+     *  Remove product from Cart
+     *  @memberof Home
+     */
     handleDeletingProduct = product => {
         // Copy Product Cart
         const updatedCart = {...this.state.cart};
@@ -65,6 +77,20 @@ class Home extends Component {
         this.setState({ cart: updatedCart })
     }
 
+    /**
+     *  Match products from search input value &
+     *  store in another state property
+     *  @memberof Home
+     */
+    handleSearch = searchValue => {
+        const regex = new RegExp(searchValue, 'gi');
+        const searchedProducts = this.state.products.filter( product => {
+            return product.title.match(regex);
+        })
+
+        this.setState(() => ({ searchedProducts }));
+    }
+
     render() {
         return (
             <Grid container>
@@ -72,8 +98,9 @@ class Home extends Component {
                     {
                         this.state.products && 
                         <ProductList 
-                            products={this.state.products}
+                            products={this.state.searchedProducts}
                             handleAddingProduct={this.handleAddingProduct}
+                            handleSearch={this.handleSearch}
                         />
                     }
                 </Grid>
