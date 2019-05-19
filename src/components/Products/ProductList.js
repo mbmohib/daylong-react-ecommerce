@@ -6,7 +6,6 @@ import ProductHeader from './ProductHeader';
 import Product from './Product';
 import Title from '../style/Title';
 
-
 const ProductListWrapper = styled.div`
     background: #FCFCFC;
 `;
@@ -38,7 +37,7 @@ class ProductList extends Component {
                                         handleAddingProduct={this.props.handleAddingProduct}
                                     />
                                 </Grid>
-                            ))
+                                ))
                         }
                     </Grid>
                 </ProductListContainer>

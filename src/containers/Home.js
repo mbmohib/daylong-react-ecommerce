@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import ProductList from '../components/Products/ProductList';
 import Sidebar from '../components/Sidebar/Sidebar';
 
+
 class Home extends Component {
 
     state = {
@@ -13,8 +14,7 @@ class Home extends Component {
         cart: {
             items: [],
             totalprice: 0
-        },
-        searchValue: ''
+        }
     }
 
     componentDidMount() {
@@ -101,7 +101,7 @@ class Home extends Component {
             <Grid container>
                 <Grid item sm={8}>
                     {
-                        this.state.products && 
+                        this.state.products &&
                         <ProductList 
                             products={this.state.searchedProducts}
                             handleAddingProduct={this.handleAddingProduct}
